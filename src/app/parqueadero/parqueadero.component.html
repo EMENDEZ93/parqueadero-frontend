@@ -1,0 +1,40 @@
+<button type="button" (click)="setEnable()" class="btn btn-primary my-3">{{ enable ? 'Ocultar': 'Mostrar' }}</button>
+<div class="card">
+  <div>
+    vehiculos parqueados
+  </div>
+
+  <ul class="list-group" *ngIf="enable == true">
+    <li class="list-group-item" *ngFor="let vehiculo of vehiculos" >{{ vehiculo }}</li>
+  </ul>
+
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Parqueadero</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Vehiculos Parqueados</h5>
+
+      <table>
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>placa</th>
+          <th>tipo vehiculo</th>
+          <th>fecha ingreso</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vehiculo of vehiculos">
+          <td>{{vehiculo.id}}</td>
+          <td>{{vehiculo.placa}}</td>
+          <td>{{vehiculo.tipo}}</td>
+          <td>{{vehiculo.fechaIngreso}}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+
+</div>
