@@ -1,32 +1,74 @@
-<button type="button" (click)="setEnable()" class="btn btn-primary my-3">{{ enable ? 'Ocultar': 'Mostrar' }}</button>
-<div class="card">
-  <div class="card border-primary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Parqueadero</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">Vehiculos Parqueados</h5>
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Vehiculos Parqueados">
 
-      <table>
-        <thead>
-        <tr>
-          <th>id</th>
-          <th>placa</th>
-          <th>tipo vehiculo</th>
-          <th>fecha ingreso</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let vehiculo of vehiculos">
-          <td>{{vehiculo.id}}</td>
-          <td>{{vehiculo.placa}}</td>
-          <td>{{vehiculo.tipo}}</td>
-          <td>{{vehiculo.fechaIngreso}}</td>
-        </tr>
-        </tbody>
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="vehiculos">
 
-      </table>
+          <ng-container matColumnDef="placa">
+            <mat-header-cell *matHeaderCellDef> Placa </mat-header-cell>
+            <mat-cell *matCellDef="let vehiculo"> {{vehiculo.placa}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="tipo">
+            <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+            <mat-cell *matCellDef="let vehiculo"> {{vehiculo.tipo}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="fechaIngreso">
+            <mat-header-cell *matHeaderCellDef> Fecha Ingreso </mat-header-cell>
+            <mat-cell *matCellDef="let vehiculo"> {{vehiculo.fechaIngreso}} </mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="salida">
+              <mat-header-cell *matHeaderCellDef> Salida del Parqueadero </mat-header-cell>
+              <mat-cell *matCellDef="let vehiculo"><button (click)="getSalidaVehiculoParqueadero( vehiculo.id )" mat-button>Salida</button></mat-cell>
+            </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+  </mat-tab>
+
+  <mat-tab label="Ingresar Vehiculo">
+    <mat-tab-group>
+      <mat-tab label="Moto">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Placa del Vehiculo</label>
+            <input type="text" class="form-control" [(ngModel)]="vehiculo.placa" name="placa-carro" id="placa" aria-describedby="placa" placeholder="digite la placa del vehiculo...">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Cilindraje</label>
+            <input type="text" class="form-control" id="cilindraje" [(ngModel)]="vehiculo.cilindraje" name="cilindraje" placeholder="Digite el cilindraje de la moto...">
+          </div>
+    
+          <input type="hidden" [(ngModel)]="vehiculo.tipoVehiculo" name="tipoVehiculo" value="EEE" >
+
+          <button type="submit" class="btn btn-primary" (click)="ingresarMotoParqueadero(vehiculo)">Ingresar</button>
+        </form>
+      </mat-tab>
+      
+      <mat-tab label="Carro">
+
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Placa del Vehiculo</label>
+            <input type="email" class="form-control" [(ngModel)]="vehiculo.placa" name="placa_moto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="digite la placa del vehiculo...">
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="ingresarCarroParqueadero(vehiculo)">Ingresar</button>
+        </form>
+
+      </mat-tab>
+    </mat-tab-group>
+    
+  </mat-tab>
+
+  <mat-tab label="T R M">
+   <h1 style="text-align: -webkit-center;" >$ {{trm}}</h1>
+  </mat-tab>
+</mat-tab-group>
 
 
-    </div>
-  </div>
-
-</div>

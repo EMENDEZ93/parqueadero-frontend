@@ -1,8 +1,7 @@
-export class Vehiculo {
+export class VehiculoModel {
 
-  id: number;
-  placa: string;
-  tipo: string;
-  fechaIngreso: string;
+  placa: string
+	tipoVehiculo:string
+	cilindraje:number
 
 }

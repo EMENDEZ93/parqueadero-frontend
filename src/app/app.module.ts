@@ -7,17 +7,27 @@ import {FooterComponent} from './footer/footer.component';
 import { ParqueaderoComponent } from './parqueadero/parqueadero.component';
 import { ParqueaderoService } from './parqueadero/parqueadero.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ParqueaderoComponent
+    ParqueaderoComponent,
+    
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    FormsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     ParqueaderoService
