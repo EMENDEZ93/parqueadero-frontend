@@ -27,7 +27,7 @@ export class ParqueaderoService {
 
 
   public getSalidaVehiculoParqueadero(idParqueadero: number){
-    return this.http.get("http://localhost:8000/salida/vehiculo/parqueadero/" + idParqueadero ).subscribe();
+    return this.http.get("http://localhost:8000/salida/vehiculo/parqueadero/" + idParqueadero );
   }
 
 }

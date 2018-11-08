@@ -27,6 +27,10 @@ export class ParqueaderoComponent  {
     this.enable = !this.enable;
   }
 
+  ngOnChanges(){
+    this.loadVehiculosParqueados();  
+  }
+
   ngOnInit() {
     this.loadVehiculosParqueados();
     this.getTrm();
@@ -56,7 +60,11 @@ export class ParqueaderoComponent  {
   }
 
   getSalidaVehiculoParqueadero(idParqueadero: number){
-    this.parqueaderoService.getSalidaVehiculoParqueadero(idParqueadero);
+    this.parqueaderoService.getSalidaVehiculoParqueadero(idParqueadero).subscribe(
+      (data) =>{ this.ngOnChanges(); },
+      (error) => { console.log(error.message) }
+    );
+    
   }
 
 }

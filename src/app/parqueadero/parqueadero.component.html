@@ -1,5 +1,5 @@
 <mat-tab-group dynamicHeight>
-  <mat-tab label="Vehiculos Parqueados">
+  <mat-tab label="Vehiculos Parqueados" (click)="ngOnChanges()" >
 
     <div class="example-container mat-elevation-z8">
         <mat-table #table [dataSource]="vehiculos">
