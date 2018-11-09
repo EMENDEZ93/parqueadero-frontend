@@ -29,39 +29,66 @@
         </mat-table>
       </div>
 
+      <div *ngIf="alertMessageSalida.status" class="alert_message">
+        <div *ngIf="alertMessageSalida.type" class="alert alert-success">
+          <a href="#" class="alert-link">{{ alertMessageSalida.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageSalida.succesfull.vehiculoEntity.placa }} a salido del parqueadero con Exito!</a>.
+        </div>
+        <div *ngIf="!alertMessageSalida.type"  class="alert alert-danger">
+          <strong>.</strong> {{ alertMessageSalida.error }}..
+        </div>
+      </div>
+
   </mat-tab>
 
   <mat-tab label="Ingresar Vehiculo">
     <mat-tab-group>
-      <mat-tab label="Moto">
+      <mat-tab label="Moto">      
         <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Placa del Vehiculo</label>
-            <input type="text" class="form-control" [(ngModel)]="vehiculo.placa" name="placa-carro" id="placa" aria-describedby="placa" placeholder="digite la placa del vehiculo...">
-          </div>
+          <div class="example-container">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Placa del vehiculo" class="form-control" name="placa-carro" [(ngModel)]="vehiculo.placa" required>
+            </mat-form-field>
 
-          <div class="form-group">
-            <label for="exampleInputPassword1">Cilindraje</label>
-            <input type="text" class="form-control" id="cilindraje" [(ngModel)]="vehiculo.cilindraje" name="cilindraje" placeholder="Digite el cilindraje de la moto...">
+            <mat-form-field>
+              <input matInput type="number" maxlength="5"  placeholder="Cilindraje" name="cilindraje" [(ngModel)]="vehiculo.cilindraje" required>
+            </mat-form-field>
           </div>
-    
-          <input type="hidden" [(ngModel)]="vehiculo.tipoVehiculo" name="tipoVehiculo" value="EEE" >
-
           <button type="submit" class="btn btn-primary" (click)="ingresarMotoParqueadero(vehiculo)">Ingresar</button>
+
+          <div *ngIf="alertMessageMoto.status">
+            <div *ngIf="alertMessageMoto.type" class="alert alert-success">
+              <a href="#" class="alert-link">{{ alertMessageMoto.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageMoto.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
+            </div>
+            <div *ngIf="!alertMessageMoto.type" class="alert alert-danger">
+                <strong>Error!</strong> {{ alertMessageMoto.error }}.
+            </div>
+          </div>      
         </form>
       </mat-tab>
       
       <mat-tab label="Carro">
-
         <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Placa del Vehiculo</label>
-            <input type="email" class="form-control" [(ngModel)]="vehiculo.placa" name="placa_moto" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="digite la placa del vehiculo...">
+          <div class="example-container">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Placa de Vehiculo" class="form-control" name="placa_moto" [(ngModel)]="vehiculo.placa" required>
+            </mat-form-field>
           </div>
+    
           <button type="submit" class="btn btn-primary" (click)="ingresarCarroParqueadero(vehiculo)">Ingresar</button>
-        </form>
+          
+          <div class="alert_message" *ngIf="alertMessageCarro.status">
+            <div *ngIf="alertMessageCarro.type" class="alert alert-success">
+              <a href="#" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa  Parqueada Exito!</a>.
+            </div>
+  
+            <div *ngIf="!alertMessageCarro.type" class="alert alert-danger">
+              <strong>{{ alertMessageCarro.error }}.</strong> .
+            </div>
+          </div>
 
+        </form>
       </mat-tab>
+
     </mat-tab-group>
     
   </mat-tab>

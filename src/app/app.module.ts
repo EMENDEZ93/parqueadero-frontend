@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { UtilService } from './utils/util.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,13 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
+    
   ],
   providers: [
-    ParqueaderoService
+    ParqueaderoService,
+    UtilService
   ],
   bootstrap: [AppComponent]
 })

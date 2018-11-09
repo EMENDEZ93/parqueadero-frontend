@@ -18,7 +18,7 @@ export class ParqueaderoService {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})};
     return this.http
       .post('http://localhost:8000/v1/ingreso/vehiculo/parqueadero',
-        JSON.stringify(vehiculoModel), httpOptions).subscribe()
+        JSON.stringify(vehiculoModel), httpOptions);
   }
 
   public getTrm(){
