@@ -21,7 +21,7 @@
       
           <ng-container matColumnDef="salida">
               <mat-header-cell *matHeaderCellDef> Salida del Parqueadero </mat-header-cell>
-              <mat-cell *matCellDef="let vehiculo"><button (click)="getSalidaVehiculoParqueadero( vehiculo.id )" mat-button>Salida</button></mat-cell>
+              <mat-cell *matCellDef="let vehiculo"><button id="salida-submit" (click)="getSalidaVehiculoParqueadero( vehiculo.id )"  mat-button color="primary">Salida</button></mat-cell>
             </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -31,18 +31,18 @@
 
       <div *ngIf="alertMessageSalida.status" class="alert_message">
         <div *ngIf="alertMessageSalida.type" class="alert alert-success">
-          <a href="#" class="alert-link">{{ alertMessageSalida.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageSalida.succesfull.vehiculoEntity.placa }} a salido del parqueadero con Exito!</a>.
+          <a name="salida-successful-alert" class="alert-link">{{ alertMessageSalida.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageSalida.succesfull.vehiculoEntity.placa }} a salido del parqueadero con Exito!</a>.
         </div>
         <div *ngIf="!alertMessageSalida.type"  class="alert alert-danger">
-          <strong>.</strong> {{ alertMessageSalida.error }}..
+          <a name="salida-error-alert">{{ alertMessageSalida.error }}.. </a>
         </div>
       </div>
 
   </mat-tab>
 
-  <mat-tab label="Ingresar Vehiculo">
+  <mat-tab label="Ingresar Vehiculo" name="ingresar-vehiculo-tab">
     <mat-tab-group>
-      <mat-tab label="Moto">      
+      <mat-tab label="Moto" name="ingresar-vehiculo-moto-tab">      
         <form>
           <div class="example-container">
             <mat-form-field>
@@ -53,20 +53,20 @@
               <input matInput type="number" maxlength="5"  placeholder="Cilindraje" name="cilindraje" [(ngModel)]="vehiculo.cilindraje" required>
             </mat-form-field>
           </div>
-          <button type="submit" class="btn btn-primary" (click)="ingresarMotoParqueadero(vehiculo)">Ingresar</button>
+          <button type="submit" class="btn btn-primary" id="ingresar-vehiculo-moto-submit" (click)="ingresarMotoParqueadero(vehiculo)">Ingresar</button>
 
           <div *ngIf="alertMessageMoto.status">
             <div *ngIf="alertMessageMoto.type" class="alert alert-success">
-              <a href="#" class="alert-link">{{ alertMessageMoto.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageMoto.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
+              <a name="ingreso-vehiculo-moto-successfull-alert" class="alert-link">{{ alertMessageMoto.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageMoto.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
             </div>
             <div *ngIf="!alertMessageMoto.type" class="alert alert-danger">
-                <strong>Error!</strong> {{ alertMessageMoto.error }}.
+              <a name="ingreso-vehiculo-moto-error-alert" ><strong>Error!</strong> {{ alertMessageMoto.error }}.</a> 
             </div>
           </div>      
         </form>
       </mat-tab>
       
-      <mat-tab label="Carro">
+      <mat-tab label="Carro" name="ingresar-vehiculo-carro-tab">
         <form>
           <div class="example-container">
             <mat-form-field>
@@ -74,15 +74,15 @@
             </mat-form-field>
           </div>
     
-          <button type="submit" class="btn btn-primary" (click)="ingresarCarroParqueadero(vehiculo)">Ingresar</button>
+          <button type="submit" class="btn btn-primary" id="ingresar-vehiculo-carro-submit" (click)="ingresarCarroParqueadero(vehiculo)">Ingresar</button>
           
           <div class="alert_message" *ngIf="alertMessageCarro.status">
             <div *ngIf="alertMessageCarro.type" class="alert alert-success">
-              <a href="#" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa  Parqueada Exito!</a>.
+              <a  name="ingreso-vehiculo-successfull-alert" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa  Parqueada Exito!</a>.
             </div>
   
             <div *ngIf="!alertMessageCarro.type" class="alert alert-danger">
-              <strong>{{ alertMessageCarro.error }}.</strong> .
+              <a> <strong>{{ alertMessageCarro.error }}.</strong> .</a>
             </div>
           </div>
 
@@ -93,8 +93,8 @@
     
   </mat-tab>
 
-  <mat-tab label="T R M">
-   <h1 style="text-align: -webkit-center;" >$ {{trm}}</h1>
+  <mat-tab label="T R M" name="trm-tab">
+   <h1 name="trm-value" style="text-align: -webkit-center;" >$ {{trm}}</h1>
   </mat-tab>
 </mat-tab-group>
 

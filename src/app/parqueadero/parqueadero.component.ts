@@ -52,13 +52,13 @@ export class ParqueaderoComponent  {
     vehiculoModel.tipoVehiculo = "Carro";
     vehiculoModel.cilindraje = 0;
     this.parqueaderoService.postIngresoVehiculoParqueadero(vehiculoModel).subscribe(
-      (data) =>{ console.log(data); 
+      (data) =>{ 
+        this.ngOnChanges();
         this.alertMessageCarro.status = true; 
         this.alertMessageCarro.type = true;
         this.alertMessageCarro.succesfull = data;
       },
       (error) => { 
-        console.log(error.error.message); 
         this.alertMessageCarro.status = true; 
         this.alertMessageCarro.type = false;
         this.alertMessageCarro.error = error.error.message;      
@@ -69,12 +69,13 @@ export class ParqueaderoComponent  {
   ingresarMotoParqueadero(vehiculoModel: VehiculoModel){
     vehiculoModel.tipoVehiculo = "Moto";
     this.parqueaderoService.postIngresoVehiculoParqueadero(vehiculoModel).subscribe(
-      (data) =>{ console.log(data); 
+      (data) =>{ 
+        this.ngOnChanges();
         this.alertMessageMoto.status = true; 
         this.alertMessageMoto.type = true;
         this.alertMessageMoto.succesfull = data;
       },
-      (error) => { console.log(error.error.message);
+      (error) => {
         this.alertMessageMoto.status = true;
         this.alertMessageMoto.type = false;
         this.alertMessageMoto.error = error.error.message;
@@ -91,13 +92,13 @@ export class ParqueaderoComponent  {
 
   getSalidaVehiculoParqueadero(idParqueadero: number){
     this.parqueaderoService.getSalidaVehiculoParqueadero(idParqueadero).subscribe(
-      (data) =>{ console.log(data); 
+      (data) =>{
         this.ngOnChanges();
         this.alertMessageSalida.status = true; 
         this.alertMessageSalida.type = true;
         this.alertMessageSalida.succesfull = data;
       },
-      (error) => { console.log(error); 
+      (error) => { 
         this.alertMessageSalida.status = true;
         this.alertMessageSalida.type = false;
         this.alertMessageSalida.error = error.error.message;

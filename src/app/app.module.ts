@@ -12,6 +12,7 @@ import { MatTabsModule, MatTableModule, MatFormFieldModule, MatInputModule } fro
 import { FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { UtilService } from './utils/util.service';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UtilService } from './utils/util.service';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
     
   ],
   providers: [
