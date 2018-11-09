@@ -46,7 +46,7 @@
         <form>
           <div class="example-container">
             <mat-form-field>
-              <input matInput type="text" placeholder="Placa del vehiculo" class="form-control" name="placa-carro" [(ngModel)]="vehiculo.placa" required>
+              <input matInput type="text" placeholder="Placa del vehiculo" class="form-control" name="placa-moto" [(ngModel)]="vehiculo.placa" required>
             </mat-form-field>
 
             <mat-form-field>
@@ -70,7 +70,7 @@
         <form>
           <div class="example-container">
             <mat-form-field>
-              <input matInput type="text" placeholder="Placa de Vehiculo" class="form-control" name="placa_moto" [(ngModel)]="vehiculo.placa" required>
+              <input matInput type="text" placeholder="Placa de Vehiculo" class="form-control" name="placa-carro" [(ngModel)]="vehiculo.placa" required>
             </mat-form-field>
           </div>
     
@@ -78,7 +78,7 @@
           
           <div class="alert_message" *ngIf="alertMessageCarro.status">
             <div *ngIf="alertMessageCarro.type" class="alert alert-success">
-              <a  name="ingreso-vehiculo-successfull-alert" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa  Parqueada Exito!</a>.
+              <a  name="ingreso-vehiculo-carro-successfull-alert" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageCarro.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
             </div>
   
             <div *ngIf="!alertMessageCarro.type" class="alert alert-danger">
