@@ -21,7 +21,7 @@
       
           <ng-container matColumnDef="salida">
               <mat-header-cell *matHeaderCellDef> Salida del Parqueadero </mat-header-cell>
-              <mat-cell *matCellDef="let vehiculo"><button id="salida-submit" (click)="getSalidaVehiculoParqueadero( vehiculo.id )"  mat-button color="primary">Salida</button></mat-cell>
+              <mat-cell *matCellDef="let vehiculo"><button id="{{vehiculo.placa}}-salida-submit" (click)="getSalidaVehiculoParqueadero( vehiculo.id )"  mat-button color="primary">Salida</button></mat-cell>
             </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -43,7 +43,7 @@
   <mat-tab label="Ingresar Vehiculo" name="ingresar-vehiculo-tab">
     <mat-tab-group>
       <mat-tab label="Moto" name="ingresar-vehiculo-moto-tab">      
-        <form>
+        <form #motoform="ngForm" >
           <div class="example-container">
             <mat-form-field>
               <input matInput type="text" placeholder="Placa del vehiculo" class="form-control" name="placa-moto" [(ngModel)]="vehiculo.placa" required>
@@ -67,10 +67,10 @@
       </mat-tab>
       
       <mat-tab label="Carro" name="ingresar-vehiculo-carro-tab">
-        <form>
+        <form #carroform="ngForm" >
           <div class="example-container">
             <mat-form-field>
-              <input matInput type="text" placeholder="Placa de Vehiculo" class="form-control" name="placa-carro" [(ngModel)]="vehiculo.placa" required>
+              <input matInput type="text" #toPlacaCarroField placeholder="Placa de Vehiculo" class="form-control" name="placa-carro" [(ngModel)]="vehiculo.placa" required>
             </mat-form-field>
           </div>
     

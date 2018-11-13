@@ -12,9 +12,6 @@ export class ParqueaderoService {
   }
 
   postIngresoVehiculoParqueadero(vehiculoModel: VehiculoModel){
-
-    console.log(JSON.stringify(vehiculoModel));
-
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})};
     return this.http
       .post('http://localhost:8000/v1/ingreso/vehiculo/parqueadero',

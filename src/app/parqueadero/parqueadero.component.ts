@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ParqueaderoService } from './parqueadero.service';
 import { VehiculoModel } from './Vehiculo';
 import { Message } from '../utils/Message';
@@ -11,27 +11,20 @@ import { UtilService } from '../utils/util.service';
 })
 export class ParqueaderoComponent  {
 
+  @ViewChild('carroform') carroform;
+  @ViewChild('motoform') motoform;
+
   alertMessageMoto = {} as Message;
   alertMessageCarro = {} as Message;
   alertMessageSalida = {} as Message;
-
   displayedColumns: string[] = ['placa', 'tipo', 'fechaIngreso', 'salida'];
-
   selectedOption = "Moto";
-
   vehiculos: any;
-
   trm: any;
-
   enable: boolean = true;
-
   vehiculo = {} as VehiculoModel;
 
   constructor(private parqueaderoService: ParqueaderoService, private utilService: UtilService) { }
-
-  setEnable(): void {
-    this.enable = !this.enable;
-  }
 
   ngOnChanges(){
     this.loadVehiculosParqueados();  
@@ -49,6 +42,7 @@ export class ParqueaderoComponent  {
   }
 
   ingresarCarroParqueadero(vehiculoModel: VehiculoModel){
+    vehiculoModel.placa == null ? vehiculoModel.placa="": vehiculoModel.placa;
     vehiculoModel.tipoVehiculo = "Carro";
     vehiculoModel.cilindraje = 0;
     this.parqueaderoService.postIngresoVehiculoParqueadero(vehiculoModel).subscribe(
@@ -57,6 +51,7 @@ export class ParqueaderoComponent  {
         this.alertMessageCarro.status = true; 
         this.alertMessageCarro.type = true;
         this.alertMessageCarro.succesfull = data;
+        this.carroform.resetForm();
       },
       (error) => { 
         this.alertMessageCarro.status = true; 
@@ -67,6 +62,7 @@ export class ParqueaderoComponent  {
   }
 
   ingresarMotoParqueadero(vehiculoModel: VehiculoModel){
+    vehiculoModel.placa == null ? vehiculoModel.placa="": vehiculoModel.placa;
     vehiculoModel.tipoVehiculo = "Moto";
     this.parqueaderoService.postIngresoVehiculoParqueadero(vehiculoModel).subscribe(
       (data) =>{ 
@@ -74,6 +70,7 @@ export class ParqueaderoComponent  {
         this.alertMessageMoto.status = true; 
         this.alertMessageMoto.type = true;
         this.alertMessageMoto.succesfull = data;
+        this.motoform.resetForm();
       },
       (error) => {
         this.alertMessageMoto.status = true;
