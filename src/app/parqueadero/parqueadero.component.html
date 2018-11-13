@@ -31,7 +31,7 @@
 
       <div *ngIf="alertMessageSalida.status" class="alert_message">
         <div *ngIf="alertMessageSalida.type" class="alert alert-success">
-          <a name="salida-successful-alert" class="alert-link">{{ alertMessageSalida.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageSalida.succesfull.vehiculoEntity.placa }} a salido del parqueadero con Exito!</a>.
+          <a name="salida-successful-alert" class="alert-link">{{ alertMessageSalida.succesfull.tipo }} con placa {{ alertMessageSalida.succesfull.placa }} a salido del parqueadero con Exito!</a>.
         </div>
         <div *ngIf="!alertMessageSalida.type"  class="alert alert-danger">
           <a name="salida-error-alert">{{ alertMessageSalida.error }}.. </a>
@@ -57,7 +57,7 @@
 
           <div *ngIf="alertMessageMoto.status">
             <div *ngIf="alertMessageMoto.type" class="alert alert-success">
-              <a name="ingreso-vehiculo-moto-successfull-alert" class="alert-link">{{ alertMessageMoto.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageMoto.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
+              <a name="ingreso-vehiculo-moto-successfull-alert" class="alert-link">Moto con placa {{ alertMessageMoto.succesfull }} Parqueado Exito!</a>.
             </div>
             <div *ngIf="!alertMessageMoto.type" class="alert alert-danger">
               <a name="ingreso-vehiculo-moto-error-alert" ><strong>Error!</strong> {{ alertMessageMoto.error }}.</a> 
@@ -78,7 +78,7 @@
           
           <div class="alert_message" *ngIf="alertMessageCarro.status">
             <div *ngIf="alertMessageCarro.type" class="alert alert-success">
-              <a  name="ingreso-vehiculo-carro-successfull-alert" class="alert-link">{{ alertMessageCarro.succesfull.vehiculoEntity.tipoVehiculo }} con placa {{ alertMessageCarro.succesfull.vehiculoEntity.placa }} Parqueado Exito!</a>.
+              <a  name="ingreso-vehiculo-carro-successfull-alert" class="alert-link">Carro con placa {{ alertMessageCarro.succesfull }} Parqueado Exito!</a>.
             </div>
   
             <div *ngIf="!alertMessageCarro.type" class="alert alert-danger">

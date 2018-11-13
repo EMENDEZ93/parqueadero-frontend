@@ -48,9 +48,9 @@ export class ParqueaderoComponent  {
     this.parqueaderoService.postIngresoVehiculoParqueadero(vehiculoModel).subscribe(
       (data) =>{ 
         this.ngOnChanges();
+        this.alertMessageCarro.succesfull = vehiculoModel.placa;
         this.alertMessageCarro.status = true; 
         this.alertMessageCarro.type = true;
-        this.alertMessageCarro.succesfull = data;
         this.carroform.resetForm();
       },
       (error) => { 
@@ -69,7 +69,7 @@ export class ParqueaderoComponent  {
         this.ngOnChanges();
         this.alertMessageMoto.status = true; 
         this.alertMessageMoto.type = true;
-        this.alertMessageMoto.succesfull = data;
+        this.alertMessageMoto.succesfull = vehiculoModel.placa;
         this.motoform.resetForm();
       },
       (error) => {
