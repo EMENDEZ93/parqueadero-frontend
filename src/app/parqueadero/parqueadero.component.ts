@@ -83,7 +83,6 @@ export class ParqueaderoComponent  {
         this.alertMessageSalida.status = true; 
         this.alertMessageSalida.type = true;
         this.alertMessageSalida.succesfull = data;
-        console.log( this.alertMessageSalida.succesfull )
       },
       (error) => { 
         this.alertMessageSalida.status = true;

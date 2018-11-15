@@ -14,7 +14,7 @@ export class ParqueaderoService {
   postIngresoVehiculoParqueadero(vehiculoModel: VehiculoModel){
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'})};
     return this.http
-      .post('http://localhost:8000/v1/ingreso/vehiculo/parqueadero',
+      .post('http://localhost:8000/registro/ingreso/vehiculo/parqueadero',
         JSON.stringify(vehiculoModel), httpOptions);
   }
 
@@ -24,7 +24,7 @@ export class ParqueaderoService {
 
 
   public getSalidaVehiculoParqueadero(idParqueadero: number){
-    return this.http.get("http://localhost:8000/salida/vehiculo/parqueadero/" + idParqueadero );
+    return this.http.get("http://localhost:8000/registro/salida/vehiculo/parqueadero/" + idParqueadero );
   }
 
 }
