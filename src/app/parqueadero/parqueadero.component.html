@@ -31,7 +31,7 @@
 
       <div *ngIf="alertMessageSalida.status" class="alert_message">
         <div *ngIf="alertMessageSalida.type" class="alert alert-success">
-          <a name="salida-successful-alert" class="alert-link">{{ alertMessageSalida.succesfull.tipo }} con placa {{ alertMessageSalida.succesfull.placa }} a salido del parqueadero con Exito!</a>.
+          <a name="salida-successful-alert" class="alert-link">{{ alertMessageSalida.succesfull.tipoVehiculo }} con placa {{ alertMessageSalida.succesfull.placa }} a salido del parqueadero con Exito! | Tiempo {{ alertMessageSalida.succesfull.tiempoPorCancelar }} | Valor a pagar : {{ alertMessageSalida.succesfull.costo }}</a>
         </div>
         <div *ngIf="!alertMessageSalida.type"  class="alert alert-danger">
           <a name="salida-error-alert">{{ alertMessageSalida.error }}.. </a>

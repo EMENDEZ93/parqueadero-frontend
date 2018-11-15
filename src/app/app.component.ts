@@ -23,7 +23,7 @@ export class AppComponent {
   getTrm(){
     this.parqueaderoService.getTrm().subscribe(
       (trm) =>{
-        this.alertMessageTrm.succesfull = trm;
+        this.alertMessageTrm.succesfull = "TRM | $ " + trm;
         this.alertMessageTrm.status = true ;
         this.alertMessageTrm.type = true
       },
