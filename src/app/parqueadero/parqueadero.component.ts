@@ -56,7 +56,7 @@ export class ParqueaderoComponent  {
       (error) => { 
         this.alertMessageCarro.status = true; 
         this.alertMessageCarro.type = false;
-        this.alertMessageCarro.error = error.error.message;      
+        this.alertMessageCarro.error = error.error;      
       }
     );
   }
@@ -75,7 +75,7 @@ export class ParqueaderoComponent  {
       (error) => {
         this.alertMessageMoto.status = true;
         this.alertMessageMoto.type = false;
-        this.alertMessageMoto.error = error.error.message;
+        this.alertMessageMoto.error = error.error;
       }
     );
   
@@ -98,7 +98,7 @@ export class ParqueaderoComponent  {
       (error) => { 
         this.alertMessageSalida.status = true;
         this.alertMessageSalida.type = false;
-        this.alertMessageSalida.error = error.error.message;
+        this.alertMessageSalida.error = error.error;
       }
     );
     
