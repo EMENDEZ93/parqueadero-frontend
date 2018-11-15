@@ -20,7 +20,7 @@ export class ParqueaderoComponent  {
   displayedColumns: string[] = ['placa', 'tipo', 'fechaIngreso', 'salida'];
   selectedOption = "Moto";
   vehiculos: any;
-  trm: any;
+  
   enable: boolean = true;
   vehiculo = {} as VehiculoModel;
 
@@ -28,11 +28,6 @@ export class ParqueaderoComponent  {
 
   ngOnChanges(){
     this.loadVehiculosParqueados();  
-  }
-
-  ngOnInit() {
-    this.loadVehiculosParqueados();
-    this.getTrm();
   }
 
   private loadVehiculosParqueados(): void {
@@ -79,12 +74,6 @@ export class ParqueaderoComponent  {
       }
     );
   
-  }
-
-  getTrm(){
-    this.parqueaderoService.getTrm().subscribe(trm => {
-      this.trm = trm ;
-    })
   }
 
   getSalidaVehiculoParqueadero(idParqueadero: number){

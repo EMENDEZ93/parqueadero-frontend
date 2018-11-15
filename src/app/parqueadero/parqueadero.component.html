@@ -60,7 +60,7 @@
               <a name="ingreso-vehiculo-moto-successfull-alert" class="alert-link">Moto con placa {{ alertMessageMoto.succesfull }} Parqueado Exito!</a>.
             </div>
             <div *ngIf="!alertMessageMoto.type" class="alert alert-danger">
-              <a name="ingreso-vehiculo-moto-error-alert" ><strong>Error!</strong> {{ alertMessageMoto.error }}.</a> 
+              <a name="ingreso-vehiculo-moto-error-alert" >{{ alertMessageMoto.error }}.</a> 
             </div>
           </div>      
         </form>
@@ -91,10 +91,6 @@
 
     </mat-tab-group>
     
-  </mat-tab>
-
-  <mat-tab label="T R M" name="trm-tab">
-   <h1 name="trm-value" style="text-align: -webkit-center;" >$ {{trm}}</h1>
   </mat-tab>
 </mat-tab-group>
 
