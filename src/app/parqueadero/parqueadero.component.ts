@@ -26,6 +26,10 @@ export class ParqueaderoComponent  {
 
   constructor(private parqueaderoService: ParqueaderoService, private utilService: UtilService) { }
 
+  ngOnInit() {
+    this.loadVehiculosParqueados();
+  }
+
   ngOnChanges(){
     this.loadVehiculosParqueados();  
   }
