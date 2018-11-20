@@ -9,14 +9,5 @@ import { Message } from './utils/Message';
 })
 export class AppComponent {
   title = 'parqueadero-frontend';
-
-  alertMessageTrm = {} as Message;
-  
-  trm: any;
-
-  constructor(private parqueaderoService: ParqueaderoService) { }
-
-  ngOnInit() {
-  }
-
+  constructor() { }
 }

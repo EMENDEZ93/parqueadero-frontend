@@ -60,7 +60,7 @@
               <a name="ingreso-vehiculo-moto-successfull-alert" class="alert-link">Moto con placa {{ alertMessageMoto.succesfull }} Parqueado Exito!</a>.
             </div>
             <div *ngIf="!alertMessageMoto.type" class="alert alert-danger">
-              <a name="ingreso-vehiculo-moto-error-alert" >{{ alertMessageMoto.error }}.</a> 
+              <a name="ingreso-vehiculo-moto-error-alert" class="alert-link" >{{ alertMessageMoto.error }}.</a> 
             </div>
           </div>      
         </form>
@@ -78,7 +78,7 @@
           
           <div class="alert_message" *ngIf="alertMessageCarro.status">
             <div *ngIf="alertMessageCarro.type" class="alert alert-success">
-              <a  name="ingreso-vehiculo-carro-successfull-alert" class="alert-link">Carro con placa {{ alertMessageCarro.succesfull }} Parqueado Exito!</a>.
+              <a name="ingreso-vehiculo-carro-successfull-alert" class="alert-link">Carro con placa {{ alertMessageCarro.succesfull }} Parqueado Exito!</a>.
             </div>
   
             <div *ngIf="!alertMessageCarro.type" class="alert alert-danger">
