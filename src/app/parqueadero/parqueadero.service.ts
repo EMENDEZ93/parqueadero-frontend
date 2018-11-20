@@ -18,11 +18,6 @@ export class ParqueaderoService {
         JSON.stringify(vehiculoModel), httpOptions);
   }
 
-  public getTrm(){
-    return this.http.get("http://localhost:8000/trm");
-  }
-
-
   public getSalidaVehiculoParqueadero(idParqueadero: number){
     return this.http.get("http://localhost:8000/registro/salida/vehiculo/parqueadero/" + idParqueadero );
   }

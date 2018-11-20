@@ -17,20 +17,6 @@ export class AppComponent {
   constructor(private parqueaderoService: ParqueaderoService) { }
 
   ngOnInit() {
-    this.getTrm();
   }
 
-  getTrm(){
-    this.parqueaderoService.getTrm().subscribe(
-      (trm) =>{
-        this.alertMessageTrm.succesfull = "TRM | $ " + trm;
-        this.alertMessageTrm.status = true ;
-        this.alertMessageTrm.type = true
-      },
-      (error) => {
-        this.alertMessageTrm.status = true; 
-        this.alertMessageTrm.type = false;
-        this.alertMessageTrm.error = error.error; 
-      })
-  }
 }
